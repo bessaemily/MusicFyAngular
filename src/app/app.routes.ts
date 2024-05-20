@@ -38,7 +38,8 @@ export const routes: Routes = [
         component: UserTemplateComponent, 
         title: 'e-commerce',
         children: [
-            { path: '', component: HomeComponent, title: 'Home'},
+            {path: '', pathMatch: 'full', redirectTo: 'produtos'},
+            //{ path: '', component: HomeComponent, title: 'Home'},
 
             { path: 'produtos', component: ConsultaCardListComponent, title: 'Produtos à Venda'},
             { path: 'login', component: LoginComponent, title: 'Login'},
@@ -46,6 +47,55 @@ export const routes: Routes = [
         ]
 
     },
+
+    { 
+        path: 'admin', 
+        component: AdminTemplateComponent, 
+        title: 'e-commerce',
+        children: [
+            {path: '', pathMatch: 'full', redirectTo: 'home'},
+
+            { path: 'gravadoras', component: GravadoraListComponent, title: 'Lista de Gravadoras'},
+            { path: 'gravadoras/new', component: GravadoraFormComponent, title: 'Nova Gravadora'},
+            { path: 'gravadoras/edit/:id', component: GravadoraFormComponent, resolve: {gravadora: gravadoraResolver}},
+
+            { path: 'artistas', component: ArtistaListComponent, title: 'Lista de Artistas'},
+            { path: 'artistas/new', component: ArtistaFormComponent, title: 'Novo Artista'},
+            { path: 'artistas/edit/:id', component: ArtistaFormComponent, resolve: {artista: artistaResolver}},
+
+            { path: 'albuns', component: AlbumListComponent, title: 'Lista de Albuns'},
+            { path: 'albuns/new', component: AlbumFormComponent, title: 'Nova Album'},
+            { path: 'albuns/edit/:id', component: AlbumFormComponent, resolve: {album: albumResolver}},
+
+
+            { path: 'generos', component: GeneroListComponent, title: 'Lista de Gêneros'},
+            { path: 'generos/new', component: GeneroFormComponent, title: 'Novo Gênero'},
+            { path: 'generos/edit/:id', component: GeneroFormComponent, resolve: {genero: generoResolver}},
+
+            { path: 'faixas', component: FaixaListComponent, title: 'Lista de Faixas'},
+            { path: 'faixas/new', component: FaixaFormComponent, title: 'Nova Faixa'},
+            { path: 'faixas/edit/:id', component: FaixaFormComponent, resolve: {faixa: faixaResolver}},
+
+            { path: 'compositores', component: CompositorListComponent, title: 'Lista de Compositores'},
+            { path: 'compositores/new', component: CompositorFormComponent, title: 'Novo Compositor'},
+            { path: 'compositores/edit/:id', component: CompositorFormComponent, resolve: {compositor: compositorResolver}},
+
+            { path: 'classificacaoetaria', component: ClassificacaoEtariaListComponent, title: 'Lista de Classificação Etária'},
+            { path: 'classificacaoetaria/new', component: ClassificacaoEtariaFormComponent, title: 'Nova Classificação Etária'},
+            { path: 'classificacaoetaria/edit/:id', component: ClassificacaoEtariaFormComponent, resolve: {classificacaoEtaria: classificacaoEtariaResolver}},
+
+            { path: 'edicaoespecial', component: EdicaoEspecialListComponent, title: 'Lista de Edição Especial'},
+            { path: 'edicaoespecial/new', component: EdicaoEspecialFormComponent, title: 'Nova Edição Especial'},
+            { path: 'edicaoespecial/edit/:id', component: EdicaoEspecialFormComponent, resolve: {edicaoEspecial: edicaoespecialResolver}},
+
+
+
+        
+        ]
+
+    },
+
+
 
             
             { path: 'gravadoras', component: GravadoraListComponent, title: 'Lista de Gravadoras'},
