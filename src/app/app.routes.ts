@@ -54,6 +54,7 @@ export const routes: Routes = [
         title: 'e-commerce',
         children: [
             {path: '', pathMatch: 'full', redirectTo: 'home'},
+            { path: '', component: HomeComponent, title: 'Home'},
 
             { path: 'gravadoras', component: GravadoraListComponent, title: 'Lista de Gravadoras'},
             { path: 'gravadoras/new', component: GravadoraFormComponent, title: 'Nova Gravadora'},
